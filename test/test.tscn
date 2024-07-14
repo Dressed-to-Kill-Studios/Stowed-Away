@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://crg6gvogmxx2t"]
+
+[ext_resource type="PackedScene" uid="uid://dd3x3h4ny0kj8" path="res://assets/blender_imports/floors/floor4.glb" id="1_cgurn"]
+[ext_resource type="PackedScene" uid="uid://ku0ro42kagdu" path="res://entities/player.tscn" id="2_eswdb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tyypy"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_rdwot"]
+sky_material = SubResource("ProceduralSkyMaterial_tyypy")
+
+[sub_resource type="Environment" id="Environment_ei3ep"]
+background_mode = 1
+background_color = Color(0.337255, 0.137255, 0.313726, 1)
+sky = SubResource("Sky_rdwot")
+ambient_light_source = 3
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Test" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ei3ep")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
+[node name="floor4" parent="." instance=ExtResource("1_cgurn")]
+
+[node name="Point" parent="floor4" index="1"]
+light_energy = 10.0
+shadow_enabled = true
+omni_range = 75.0
+
+[node name="Point_001" parent="floor4" index="2"]
+light_energy = 10.0
+shadow_enabled = true
+omni_range = 75.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+use_collision = true
+size = Vector3(104, 0.5, 84)
+
+[node name="Player" parent="." instance=ExtResource("2_eswdb")]
+
+[editable path="floor4"]
