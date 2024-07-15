@@ -12,21 +12,26 @@ shadow_enabled = true
 
 [node name="floor4" parent="." instance=ExtResource("1_cgurn")]
 
-[node name="Point" parent="floor4" index="1"]
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="Point" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 3, 2, -3)
+light_color = Color(1, 1, 1, 1)
 light_energy = 10.0
 shadow_enabled = true
 omni_range = 75.0
 
-[node name="Point_001" parent="floor4" index="2"]
+[node name="Point_001" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -5, 3, -8)
+light_color = Color(1, 1, 1, 1)
 light_energy = 10.0
 shadow_enabled = true
 omni_range = 75.0
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
-use_collision = true
-size = Vector3(104, 0.5, 84)
+[node name="Point_002" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98361, 0)
+light_energy = 10.0
+shadow_enabled = true
+omni_range = 75.0
 
 [node name="Player" parent="." instance=ExtResource("2_eswdb")]
-
-[editable path="floor4"]
