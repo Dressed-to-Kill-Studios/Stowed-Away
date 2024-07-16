@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://crg6gvogmxx2t"]
+[gd_scene load_steps=5 format=3 uid="uid://crg6gvogmxx2t"]
 
 [ext_resource type="PackedScene" uid="uid://dd3x3h4ny0kj8" path="res://assets/blender_imports/floors/floor4.glb" id="1_cgurn"]
 [ext_resource type="PackedScene" uid="uid://dbk4cx4kqbwit" path="res://assets/blender_imports/rooms/assets/room_ceiling_grate.glb" id="2_4yqcq"]
 [ext_resource type="PackedScene" uid="uid://ku0ro42kagdu" path="res://entities/player/player.tscn" id="2_eswdb"]
 
+[sub_resource type="Environment" id="Environment_d86yr"]
+ambient_light_source = 1
+tonemap_mode = 3
+sdfgi_use_occlusion = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+
 [node name="Test" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d86yr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
