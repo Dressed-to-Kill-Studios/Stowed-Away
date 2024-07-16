@@ -1,5 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://c158wp3l6o5jq"]
+[gd_scene load_steps=4 format=3 uid="uid://c158wp3l6o5jq"]
 
 [ext_resource type="PackedScene" uid="uid://bx5s2fe07h05h" path="res://assets/blender_imports/doors/container_door.glb" id="1_pngvl"]
+[ext_resource type="Script" path="res://scripts/interactable/door/door.gd" id="1_ytkh8"]
 
-[node name="ContainerDoor" instance=ExtResource("1_pngvl")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wow8k"]
+size = Vector3(6, 3.5, 0.3)
+
+[node name="ContainerDoor" type="StaticBody3D" node_paths=PackedStringArray("entry_point", "exit_point", "interact_area")]
+collision_layer = 8
+script = ExtResource("1_ytkh8")
+entry_point = NodePath("Marker3D")
+exit_point = NodePath("Marker3D2")
+interact_area = NodePath("CollisionShape3D")
+
+[node name="container_door" parent="." instance=ExtResource("1_pngvl")]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Marker3D2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+shape = SubResource("BoxShape3D_wow8k")

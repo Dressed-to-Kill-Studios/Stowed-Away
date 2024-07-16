@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name Player
 
+@onready var raycast = $RayCast3D
+
 var turn_speed : float = 3.0
 var mouse_sens : float = 0.3
 
@@ -62,4 +64,6 @@ func handle_movement(delta : float):
 
 
 func interacting():
-	pass
+	var interact_body : Interactable = raycast.get_collider() 
+	
+	if interact_body: interact_body.interact(self)
