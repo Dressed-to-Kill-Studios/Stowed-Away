@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://crg6gvogmxx2t"]
+[gd_scene load_steps=4 format=3 uid="uid://crg6gvogmxx2t"]
 
 [ext_resource type="PackedScene" uid="uid://dd3x3h4ny0kj8" path="res://assets/blender_imports/floors/floor4.glb" id="1_cgurn"]
+[ext_resource type="PackedScene" uid="uid://dbk4cx4kqbwit" path="res://assets/blender_imports/rooms/assets/room_ceiling_grate.glb" id="2_4yqcq"]
 [ext_resource type="PackedScene" uid="uid://ku0ro42kagdu" path="res://entities/player/player.tscn" id="2_eswdb"]
 
 [node name="Test" type="Node"]
@@ -12,18 +13,19 @@ shadow_enabled = true
 
 [node name="floor4" parent="." instance=ExtResource("1_cgurn")]
 
+[node name="room_ceiling_grate" parent="." instance=ExtResource("2_4yqcq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 5, -9)
+
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="Point" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 3, 2, -3)
-light_color = Color(1, 1, 1, 1)
 light_energy = 10.0
 shadow_enabled = true
 omni_range = 75.0
 
 [node name="Point_001" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -5, 3, -8)
-light_color = Color(1, 1, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -10, 2.785, -10)
 light_energy = 10.0
 shadow_enabled = true
 omni_range = 75.0
