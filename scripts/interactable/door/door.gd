@@ -10,10 +10,11 @@ enum LOCKED_STATES {
 
 @export var entry_point : Marker3D
 @export var exit_point : Marker3D
+@export var interact_camera : Camera3D
 
 
-func interact(interactor : CharacterBody3D) -> String:
-	return cant_interact_messages[randi() % cant_interact_messages.size()]
+func interact(interactor : CharacterBody3D):
+	pass
 	
 
 

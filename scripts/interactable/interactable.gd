@@ -5,7 +5,6 @@ class_name Interactable
 @export var can_interact_messages : Array[String] = ["I can interact with this."]
 @export var cant_interact_messages : Array[String] = ["I can't interact with this"]
 @export var interact_area : CollisionShape3D
-@export var interact_camera : Camera3D
 
 func _ready():
 	assert(interact_area, "No Interact Area")

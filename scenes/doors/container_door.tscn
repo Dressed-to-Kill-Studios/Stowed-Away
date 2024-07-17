@@ -9,8 +9,12 @@ size = Vector3(6, 3.5, 0.3)
 [node name="ContainerDoor" type="StaticBody3D" node_paths=PackedStringArray("entry_point", "exit_point", "interact_area")]
 collision_layer = 8
 script = ExtResource("1_ytkh8")
+locked_state = null
 entry_point = NodePath("Marker3D")
 exit_point = NodePath("Marker3D2")
+can_interact = null
+can_interact_messages = null
+cant_interact_messages = null
 interact_area = NodePath("CollisionShape3D")
 
 [node name="container_door" parent="." instance=ExtResource("1_pngvl")]
