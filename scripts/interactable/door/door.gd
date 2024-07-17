@@ -1,11 +1,23 @@
 extends Interactable
 class_name Door
 
+enum LOCKED_STATES {
+	UNLOCKED,
+	LOCKED,
+	LOCKED_FROM_INSIDE,
+}
+@export var locked_state : LOCKED_STATES = LOCKED_STATES.UNLOCKED
+
 @export var entry_point : Marker3D
 @export var exit_point : Marker3D
 
 
-func interact(interactor : CharacterBody3D):
+func interact(interactor : CharacterBody3D) -> String:
+	return cant_interact_messages[randi() % cant_interact_messages.size()]
+	
+
+
+func _open_door(interactor : CharacterBody3D):
 	var dist_to_entry := interactor.global_position.distance_to(entry_point.global_position)
 	var dist_to_exit := interactor.global_position.distance_to(exit_point.global_position)
 	
