@@ -6,15 +6,12 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_wow8k"]
 size = Vector3(6, 3.5, 0.3)
 
-[node name="ContainerDoor" type="StaticBody3D" node_paths=PackedStringArray("entry_point", "exit_point", "interact_area")]
+[node name="ContainerDoor" type="StaticBody3D" node_paths=PackedStringArray("entry_point", "exit_point", "interact_camera", "interact_area")]
 collision_layer = 8
 script = ExtResource("1_ytkh8")
-locked_state = null
 entry_point = NodePath("Marker3D")
 exit_point = NodePath("Marker3D2")
-can_interact = null
-can_interact_messages = null
-cant_interact_messages = null
+interact_camera = NodePath("Camera3D")
 interact_area = NodePath("CollisionShape3D")
 
 [node name="container_door" parent="." instance=ExtResource("1_pngvl")]
@@ -28,3 +25,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 shape = SubResource("BoxShape3D_wow8k")
+
+[node name="Camera3D" type="Camera3D" parent="."]

@@ -9,3 +9,4 @@
 
 [node name="ContainerDoor" parent="." instance=ExtResource("2_pus3c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 4)
+locked_state = 2

@@ -7,14 +7,38 @@ enum LOCKED_STATES {
 	LOCKED_FROM_INSIDE,
 }
 @export var locked_state : LOCKED_STATES = LOCKED_STATES.UNLOCKED
+@export var unlocked_messages : Array[String] = ["The door is unlocked."]
+@export var locked_messages : Array[String] = ["The door is locked.", "I can't open this door."]
+@export var locked_from_inside_messages : Array[String] = ["The door is locked from the other side."]
 
+@export_group("Required")
 @export var entry_point : Marker3D
 @export var exit_point : Marker3D
 @export var interact_camera : Camera3D
 
 
-func interact(interactor : CharacterBody3D):
-	pass
+func _ready():
+	assert(entry_point, "No Entry Point")
+	assert(exit_point, "No Exit Point")
+	assert(interact_camera, "No Interact Camera")
+
+
+func interact(interactor : CharacterBody3D) -> String:
+	if not can_interact: return super(interactor)
+	
+	match locked_state:
+		LOCKED_STATES.UNLOCKED:
+			_open_door(interactor)
+			return unlocked_messages[randi() % unlocked_messages.size()]
+		
+		LOCKED_STATES.LOCKED:
+			return locked_messages[randi() % locked_messages.size()]
+		
+		LOCKED_STATES.LOCKED_FROM_INSIDE:
+			return locked_from_inside_messages[randi() % locked_from_inside_messages.size()]
+		
+		_:
+			return super(interactor)
 	
 
 

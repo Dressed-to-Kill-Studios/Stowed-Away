@@ -4,6 +4,8 @@ class_name Interactable
 @export var can_interact : bool = true
 @export var can_interact_messages : Array[String] = ["I can interact with this."]
 @export var cant_interact_messages : Array[String] = ["I can't interact with this"]
+
+@export_group("Required")
 @export var interact_area : CollisionShape3D
 
 func _ready():
