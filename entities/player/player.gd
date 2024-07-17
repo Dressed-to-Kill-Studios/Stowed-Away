@@ -66,4 +66,4 @@ func handle_movement(delta : float):
 func interacting():
 	var interact_body : Interactable = raycast.get_collider() 
 	
-	if interact_body: interact_body.interact(self)
+	if interact_body: print(interact_body.interact(self))
