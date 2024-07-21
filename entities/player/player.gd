@@ -3,10 +3,14 @@ class_name Player
 
 @onready var raycast = $RayCast3D
 
+#Inventory
+@export var inventory : InventoryData = InventoryData.new()
+
+
+#Movement
 var turn_speed : float = 3.0
 var mouse_sens : float = 0.3
 
-#Movement
 var can_move : bool = true
 
 enum MOVEMENT_STATES {

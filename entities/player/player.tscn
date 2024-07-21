@@ -1,13 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://ku0ro42kagdu"]
+[gd_scene load_steps=6 format=3 uid="uid://ku0ro42kagdu"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_6eupi"]
+[ext_resource type="Script" path="res://scripts/inventory/inventory_data.gd" id="2_vt8ho"]
+
+[sub_resource type="Resource" id="Resource_jb8hc"]
+script = ExtResource("2_vt8ho")
+slot_datas = Array[Resource("res://scripts/inventory/slot_data.gd")]([])
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rrn1s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nobc7"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_6eupi")
+inventory = SubResource("Resource_jb8hc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

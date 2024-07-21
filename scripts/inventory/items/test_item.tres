@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://byd347tj2l8ug"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item_data.gd" id="1_5qdmj"]
+
+[resource]
+script = ExtResource("1_5qdmj")
+name = "Test Item"
+description = "This item is for testing purposes only.
+"
+max_stack_size = 20
